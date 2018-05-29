@@ -7,7 +7,7 @@
     {
         public bool Valuable { get; }
         public bool Cooled { get; }
-        public double Weight { get; }
+        public double Weight { get; } 
 
         public Container(bool valuable, bool cooled, double weight)
         {
