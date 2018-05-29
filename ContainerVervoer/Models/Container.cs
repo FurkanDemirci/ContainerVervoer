@@ -7,13 +7,18 @@
     {
         public bool Valuable { get; }
         public bool Cooled { get; }
-        public int Weight { get; }
+        public double Weight { get; }
 
-        public Container(bool valuable, bool cooled, int weight)
+        public Container(bool valuable, bool cooled, double weight)
         {
             Valuable = valuable;
             Cooled = cooled;
             Weight = weight;
+        }
+
+        public override string ToString()
+        {
+            return "Weight: " + Weight + ", Valuable: " + Valuable + ", Cooled: " + Cooled;
         }
     }
 }
