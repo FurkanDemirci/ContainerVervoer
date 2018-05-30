@@ -77,7 +77,7 @@ namespace ContainerVervoer.Models
             for (int i = 0; i < 6; i++)
             {
                 if (i == 0 || i == 2 || i == 4)
-                    row1 = row1 + Places[i].Weight;
+                    row1 = row1 + Places[i].Weight; 
                 else
                     row2 = row2 + Places[i].Weight;
             }

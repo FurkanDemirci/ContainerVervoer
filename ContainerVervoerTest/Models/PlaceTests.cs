@@ -29,12 +29,6 @@ namespace ContainerVervoerTest.Models
         }
 
         [TestMethod()]
-        public void PlaceTest()
-        {
-            Assert.Fail();
-        }
-
-        [TestMethod()]
         public void AddContainerTest()
         {
             _container = new Container(false, false, 4000);
@@ -46,6 +40,7 @@ namespace ContainerVervoerTest.Models
         public void DeleteContainerTest()
         {
             _container = new Container(false, false, 4000);
+            _place1.AddContainer(_container);
             var deleted = _place1.DeleteContainer(_container);
             Assert.IsTrue(deleted);
         }
@@ -53,20 +48,15 @@ namespace ContainerVervoerTest.Models
         [TestMethod()]
         public void SetPositionTest()
         {
-            Service service = new Service(6, 900000);
-            List<Container> containers = new List<Container>();
-
-            for (int i = 0; i < 5; i++)
-                containers.Add(new Container(true, false, 30000));
-            containers.Add(new Container(true, false, 30000));
+            var containers = new List<Container> {new Container(true, false, 30000)};
+            for (int i = 0; i < 4; i++)
+                containers.Add(new Container(false, false, 30000));
 
             foreach (var container in containers)
                 _place1.AddContainer(container);
 
-            _container = new Container(false, false, 4000);
             _place1.SetPosition();
-
-            Assert.AreEqual(_place1.Containers[5].Valuable, true);
+            Assert.AreEqual(_place1.Containers[4].Valuable, true);
         }
     }
 }
